@@ -1,0 +1,25 @@
+The Window class utilizes Jframe to display the program and to draw the graphics upon.
+KeyInput extends KeyAdapter class maps the Player controls to the keys.
+Camera class mainly sets the x and y for the camera view.
+
+The project centers around the Game class which extends Canvas and is Runnable, and it utilizes a Thread to run the program.  It initializes the game components,
+and has a game loop that ticks and renders the game while running based on a set time.
+
+
+Game objects:
+GameObject is an abstract class for most of the objects we can see/rendered in the game that aren't a part of the background image.
+(Player, Enemy, Block, Fire, End, Weapon) and contains the basic information regarding each of the objects.  All of the mentioned Classes extend GameObject.
+Special note: For Player Collision, there were 4 Rectangles made to bound the top, left, right, and bottom of the player and check for block collisions along those lines.
+
+For Dealing with Images and Images from File:
+BufferedImageLoader is a class with a method that mainly grabs an image from a path for the program to use.
+SpriteSheet helps grab subimages from a BufferedImage.
+Texture uses the BufferedImageLoader to pull buffered images from file and make them into SpriteSheets, and indexes different subimages.
+Animation basically cycles through a given number of Buffered images at a speed to give a perception of animation.
+
+The Handler class manages much of the GameObjects.  It takes in a camera.  I had some bugs and problems with weapon and their removal upon collision with blocks which
+led me to try a different approach with Weapon from other GameObjects.  However, due to time constraints I didn't combine them back into the same even
+though Weapon are Gameobjects, and for now, Weapon are kept track of in a separate list than the other GameObjects and thus has its own set of functions.
+
+
+ObjectId is an enum mainly used for identifying certain GameObjects and direction.
